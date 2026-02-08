@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <title>say YES</title>
+        <style>
+            body{
+                margin: 0;
+                height: 100vh;
+                display: flex;
+                justify-content: center;
+                background:white ;
+                font-family: Arial, Helvetica, sans-serif;
+            }
+            .container{
+                position: relative;
+                text-align: center;
+                background: rgba(255, 255, 255, 0.8);
+                padding: 30px;
+                border-radius: 20px;
+                box-shadow: 0 0 20px rgba(0, 0, 0, 0.5);
+                width: 320px;
+            }
+            .meme-img{
+                width: 150px;
+                height: auto;
+                margin-bottom: 20px;
+                border-radius: 10px;
+
+            }
+            h2{
+                margin-bottom: 40px;
+            }
+            button{
+                padding: 15px 30px;
+                margin: 20px;
+                font-size: 18px;
+                cursor: pointer;
+                position: absolute;
+                border: none;
+                border-radius: 10px;
+                transition: all 0.2s ease;
+            }
+            #yes{
+                background-color: #4CAF50;
+                color: white;
+                left: 50px;
+                bottom: 20px;
+            }
+            #no{
+                background-color: #f44336;
+                color: white;
+                right: 50px;
+                bottom: 20px;
+            }
+        </style>
+    </head>
+    <body>
+        <div class="container">
+            <img src="IMG_2888.JPG" class="meme-img" alt="memmmme">
+            <h2>Let's FUCK?</h2>
+            <button id="yes">YES</button>
+            <button id="no">NO</button>
+        </div>
+        <script>
+            const nobtn = document.getElementById("no");
+            const yesbtn = document.getElementById("yes");
+            const container = document.querySelector('.container');
+            function moveno(){
+                const maxx = window.innerWidth - nobtn.offsetWidth;
+                const maxy = window.innerHeight - nobtn.offsetHeight;
+                const x = Math.random() * maxx;
+                const y = Math.random() * maxy;
+                nobtn.style.left = x + "px";
+                nobtn.style.top = y + "px";
+                if (Math.random() < 0.2){
+                    const tempText = yesbtn.textContent;
+                    yesbtn.textContent = nobtn.textContent;
+                    nobtn.textContent = tempText;
+                }
+                if (Math.random() < 0.1){
+                    nobtn.style.display = "none";
+                    setTimeout(() => nobtn.style.display = "block" , 500);
+                }
+            }
+                nobtn.addEventListener("mouseenter", moveno);
+                yesbtn.addEventListener("click", () => {
+                    alert("XD XD XD ");
+                })
+        </script>
+    </body>
+</html>
